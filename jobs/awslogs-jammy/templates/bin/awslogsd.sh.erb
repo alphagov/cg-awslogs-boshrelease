@@ -20,6 +20,10 @@ export HOME=/root
 
 aws cloudwatch list-metrics --metric-name canary
 
+# ensure logrotate service is started
+
+systemctl start logrotate
+
 # if we got to here then we are good to start the agent
 
 exec /usr/bin/nice -n 4 aws logs push \
